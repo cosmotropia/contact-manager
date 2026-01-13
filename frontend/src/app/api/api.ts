@@ -4,30 +4,7 @@ const API_URL = "http://localhost:8001/api";
 // Types
 // ==============================
 
-export interface Contact {
-  id: string;
-  name: string;
-  email: string;
-  phone: string;
-  company?: string;
-  position?: string;
-  linkedin?: string;
-  tags: string[];
-  notes: string;
-  last_contact_date?: string;
-  relationship_status: string;
-}
-
-export interface ContactCreate {
-  name: string;
-  email: string;
-  phone: string;
-  company?: string;
-  position?: string;
-  linkedin?: string;
-  tags?: string[];
-  notes?: string;
-}
+import type { Contact, ContactCreate } from "@/lib/types";
 
 // ==============================
 // Helpers
@@ -125,3 +102,5 @@ export const contactsApi = {
     return normalizeContacts(data);
   },
 };
+
+export type { Contact, ContactCreate };

@@ -15,3 +15,14 @@ export interface Contact {
   last_contact_date?: string;
   relationship_status: "active" | "inactive" | "prospect";
 }
+
+export interface ContactCreate {
+  name: string;
+  email: string;
+  phone: string;
+  company?: string;
+  position?: string;
+  linkedin?: string;
+  tags?: string[];
+  notes?: string;
+}

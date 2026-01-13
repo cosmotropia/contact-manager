@@ -15,6 +15,7 @@ interface ContactsCardProps {
   editingContact: Contact | null;
   onStartEdit: (contact: Contact) => void;
   onCancelEdit: () => void;
+  isLoading: boolean;
 }
 
 export function ContactsCard({
