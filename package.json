@@ -1,0 +1,19 @@
+{
+  "name": "contact-manager",
+  "private": true,
+  "scripts": {
+    "install:all": "npm run install:backend && npm run install:frontend",
+    "install:backend": "python -m venv backend/.venv || true && backend/.venv/bin/python -m pip install --upgrade pip && backend/.venv/bin/pip install -r backend/requirements.txt",
+    "install:frontend": "cd frontend && npm install",
+
+    "dev": "concurrently -n BACKEND,FRONTEND -c auto \"npm run dev:backend\" \"npm run dev:frontend\"",
+    "dev:backend": "backend/.venv/bin/uvicorn app.main:app --app-dir backend --reload --port 8001",
+    "dev:frontend": "cd frontend && npm run dev",
+
+    "test:backend": "backend/.venv/bin/python -m unittest discover -s backend -p \"test_*.py\" -v"
+  },
+  "dependencies": {
+    "concurrently": "^9.2.1"
+  }
+}
+
