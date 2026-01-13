@@ -1,0 +1,39 @@
+services:
+  # Servicio 1: Backend (FastAPI)
+  - type: web
+    name: contact-manager-backend
+    env: python
+    region: oregon
+    plan: free
+    rootDir: backend
+    buildCommand: "pip install -r requirements.txt"
+    startCommand: "uvicorn app.main:app --host 0.0.0.0 --port $PORT"
+    healthCheckPath: /
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.12.0
+
+  # Servicio 2: Frontend (Next.js + Agent Python)
+  - type: web
+    name: contact-manager-frontend
+    env: node
+    region: oregon
+    plan: free
+    rootDir: frontend
+    buildCommand: |
+      npm install
+      npm run build
+      cd agent
+      python3 -m venv .venv
+      .venv/bin/pip install --upgrade pip
+      .venv/bin/pip install -e .
+    startCommand: "npm start"
+    envVars:
+      - key: NODE_VERSION
+        value: 18.17.0
+      - key: PYTHON_VERSION
+        value: 3.12.0
+      - key: OPENAI_API_KEY
+        sync: false
+      - key: NEXT_PUBLIC_BACKEND_URL
+        value: https://contact-manager-backend.onrender.com/api

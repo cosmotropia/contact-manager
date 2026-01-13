@@ -28,7 +28,7 @@ siguiendo principios de separación de responsabilidades y programación
 orientada a objetos.
 
 Como extensión experimental, el proyecto integra un agente conversacional
-inteligente orquestado con CopilotKit y LangGraph (GPT-4o-mini), que permite
+inteligente orquestado con CopilotKit y LangGraph (GPT-4o), que permite
 interactuar con el sistema mediante lenguaje natural. El agente actúa
 exclusivamente como orquestador y consume la API REST del backend, sin acceder
 directamente a la lógica de negocio ni a la base de datos.
