@@ -21,7 +21,8 @@ app.add_middleware(
     CORSMiddleware,
     allow_origins=[
         "http://localhost:3000",
-        "https://contact-manager-frontend.onrender.com",
+        "https://contact-manager-r9arxpa09-cosmotropias-projects.vercel.app",
+        "https://*.vercel.app",
         FRONTEND_URL,
     ],
     allow_credentials=True,
