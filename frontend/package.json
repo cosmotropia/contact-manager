@@ -9,8 +9,8 @@
     "dev:ui": "next dev --turbopack",
     "build": "next build",
     "start": "concurrently \"npm run start:ui\" \"npm run start:agent\" --names ui,agent --prefix-colors blue,green",
-    "start:ui": "next start",
-    "start:agent": "cd agent && .venv/bin/python -m langgraph_cli dev --port 8123 --no-browser",
+    "start:ui": "next start -H 0.0.0.0 -p ${PORT:-3000}",
+    "start:agent": "cd agent && .venv/bin/python -m langgraph_cli dev --port 8123 --no-browser --host 0.0.0.0",
     "lint": "eslint .",
     "install:agent": "sh ./scripts/setup-agent.sh || scripts\\setup-agent.bat",
     "postinstall": "npm run install:agent"
