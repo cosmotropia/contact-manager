@@ -140,7 +140,7 @@ export default function CopilotKitPage() {
           },
           {
             title: "Buscar",
-            message: "Muestra todos mis contactos en tecnología y su estado",
+            message: "Muestra mis contactos relacionados con tecnología y su estado",
           },
           {
             title: "Analizar",

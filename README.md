@@ -190,7 +190,13 @@ nano frontend/agent/.env
 
 ## 5. Ejecución en Entorno Local
 
-### 5.1 Inicio Rápido (Todo en Uno)
+## 5.1 Prerequisites
+
+- Node.js 18+ 
+- Python 3.8+
+- npm
+
+### 5.2 Inicio Rápido (Todo en Uno)
 
 ```bash
 # Desde la raíz del proyecto
@@ -204,7 +210,7 @@ npm run dev
 
 ```
 
-### 5.2 Verificación de Servicios
+### 5.3 Verificación de Servicios
 
 #### 1. Backend (FastAPI)
 

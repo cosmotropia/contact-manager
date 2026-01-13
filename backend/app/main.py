@@ -5,6 +5,7 @@ Mounts the contact router from api.py
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from app.api import router as contact_router
+import os
 
 # Initialize FastAPI app
 app = FastAPI(
@@ -14,9 +15,15 @@ app = FastAPI(
 )
 
 # CORS middleware
+FRONTEND_URL = os.getenv("FRONTEND_URL", "http://localhost:3000")
+
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://localhost:3000"],
+    allow_origins=[
+        "http://localhost:3000",
+        "https://contact-manager-frontend.onrender.com",
+        FRONTEND_URL,
+    ],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],

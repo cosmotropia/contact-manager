@@ -1,0 +1,19 @@
+Metadata-Version: 2.4
+Name: sample-agent
+Version: 0.1.0
+Summary: A LangGraph agent
+Requires-Python: >=3.12
+Requires-Dist: langchain==1.2.0
+Requires-Dist: langgraph==1.0.5
+Requires-Dist: langsmith>=0.4.49
+Requires-Dist: openai<2.0.0,>=1.68.2
+Requires-Dist: fastapi<1.0.0,>=0.115.5
+Requires-Dist: uvicorn<1.0.0,>=0.29.0
+Requires-Dist: python-dotenv<2.0.0,>=1.0.0
+Requires-Dist: langgraph-cli[inmem]>=0.4.11
+Requires-Dist: langchain-openai>=1.1.0
+Requires-Dist: copilotkit>=0.1.74
+Requires-Dist: langgraph-api>=0.6.0
+Requires-Dist: pydantic>=2.0.0
+Requires-Dist: email-validator>=2.0.0
+Requires-Dist: httpx>=0.27.0

@@ -8,7 +8,9 @@
     "dev:agent": "cd agent && npx @langchain/langgraph-cli dev --port 8123 --no-browser",
     "dev:ui": "next dev --turbopack",
     "build": "next build",
-    "start": "next start",
+    "start": "concurrently \"npm run start:ui\" \"npm run start:agent\" --names ui,agent --prefix-colors blue,green",
+    "start:ui": "next start",
+    "start:agent": "cd agent && .venv/bin/python -m langgraph_cli dev --port 8123 --no-browser",
     "lint": "eslint .",
     "install:agent": "sh ./scripts/setup-agent.sh || scripts\\setup-agent.bat",
     "postinstall": "npm run install:agent"
