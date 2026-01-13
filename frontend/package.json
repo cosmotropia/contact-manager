@@ -8,7 +8,7 @@
     "dev:agent": "cd agent && npx @langchain/langgraph-cli dev --port 8123 --no-browser",
     "dev:ui": "next dev --turbopack",
     "build": "next build",
-    "start": "concurrently \"npm run start:ui\" \"npm run start:agent\" --names ui,agent --prefix-colors blue,green",
+    "start": "npm run start:agent & sleep 30 && npm run start:ui",
     "start:ui": "next start -H 0.0.0.0 -p ${PORT:-3000}",
     "start:agent": "cd agent && .venv/bin/python -m langgraph_cli dev --port 8123 --no-browser --host 0.0.0.0",
     "lint": "eslint ."
