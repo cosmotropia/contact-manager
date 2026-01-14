@@ -87,19 +87,19 @@ class TestContactManager(unittest.TestCase):
     def test_filters(self):
         """
         Test de filtros de búsqueda.
-        Este test agrega dos contactos con tags diferentes y luego filtra por tag.
+        Este test agrega dos contactos con tags diferentes y luego filtra.
         Verifica que el contacto con tag "tech" fue filtrado correctamente.
         """
         self.m.add_contact(ContactCreate(name="María", email="m@a.com", phone="111", tags=["tech"]))
         self.m.add_contact(ContactCreate(name="Pedro", email="p@a.com", phone="222", tags=["sales"]))
 
-        by_tag = self.m.get_all(tag="tech")
-        self.assertEqual(len(by_tag), 1)
-        self.assertEqual(by_tag[0].name, "María")
-
         by_search = self.m.get_all(search="pedro")
         self.assertEqual(len(by_search), 1)
         self.assertEqual(by_search[0].email, "p@a.com")
+
+        by_search_2 = self.m.get_all(search="tech")
+        self.assertEqual(len(by_search), 1)
+        self.assertEqual(by_search_2[0].name, "María")
     
 if __name__ == '__main__':
     # Ejecutar tests con output verboso para ver los detalles de los tests

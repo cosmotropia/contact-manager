@@ -169,19 +169,18 @@ class ContactManager:
         """Obtiene todos los contactos con filtrado opcional."""
         results = self._contacts_list
 
-        if tag:
-            results = [
-                c for c in results
-                if tag.lower() in [t.lower() for t in c.tags]
-            ]
-
         if search:
             search_lower = search.lower()
             results = [
                 c for c in results
                 if search_lower in c.name.lower()
-                or search_lower in c.email.lower()
                 or search_lower in c.phone
+                or search_lower in c.email.lower()
+                or search_lower in (c.company or "").lower()
+                or search_lower in (c.position or "").lower()
+                or search_lower in (c.linkedin or "").lower()
+                or search_lower in c.notes.lower()
+                or any(search_lower in t.lower() for t in c.tags) # Check if any tag contains the search
             ]
 
         return results

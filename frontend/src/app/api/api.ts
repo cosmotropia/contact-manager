@@ -91,16 +91,6 @@ export const contactsApi = {
     const data = await handleResponse<any>(res);
     return normalizeContacts(data);
   },
-
-  // Search contacts by tag
-  async searchByTag(tag: string): Promise<Contact[]> {
-    const res = await fetch(
-      `${API_URL}/contacts?tag=${encodeURIComponent(tag)}`
-    );
-
-    const data = await handleResponse<any>(res);
-    return normalizeContacts(data);
-  },
 };
 
 export type { Contact, ContactCreate };

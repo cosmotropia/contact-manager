@@ -199,7 +199,7 @@ class TestContactsAPI(unittest.TestCase):
         self.client.post("/api/contacts", json=_contact_payload(email="t1@a.com", tags=["tech"]))
         self.client.post("/api/contacts", json=_contact_payload(email="t2@a.com", tags=["sales"]))
 
-        res = self.client.get("/api/contacts", params={"tag": "tech"})
+        res = self.client.get("/api/contacts", params={"search": "tech"})
         self.assertEqual(res.status_code, 200)
         data = res.json()
         self.assertEqual(len(data), 1)
